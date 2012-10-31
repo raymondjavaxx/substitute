@@ -1,0 +1,8 @@
+# Substitute
+
+String replacement based templating engine
+
+## Usage
+
+	$template = new \substitute\Template("Hi {name}, your activation code is {code}.")
+	$message = $template->render(array('name' => 'John', 'code' => '1234')); // Hi John, your activation code is 1234.

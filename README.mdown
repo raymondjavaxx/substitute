@@ -2,6 +2,8 @@
 
 String replacement based templating engine
 
+[![Build Status](https://secure.travis-ci.org/raymondjavaxx/substitute.png)](http://travis-ci.org/raymondjavaxx/substitute)
+
 ## Usage
 
 	$template = new \substitute\Template("Hi {name}, your activation code is {code}.")

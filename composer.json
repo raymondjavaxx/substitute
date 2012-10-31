@@ -1,0 +1,19 @@
+{
+	"name": "substitute/substitute",
+	"type": "library",
+	"description": "String replacement based template engine",
+	"keywords":["template"],
+	"homepage":"http://github.com/raymondjavaxx/substitute",
+	"license":"MIT",
+	"authors":[
+		{
+			"name": "Ramon Torres",
+			"email": "raymondjavaxx@gmail.com"
+		}
+	],
+	"autoload": {
+		"psr-0": {"substitute": "libraries/"}
+	},
+	"require": {
+	}
+}

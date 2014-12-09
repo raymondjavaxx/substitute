@@ -13,6 +13,12 @@ class TemplateTest extends \PHPUnit_Framework_TestCase {
 		$this->assertEquals('Hello World!', $result);
 	}
 
+	public function testRenderShouldReplaceAllInstances() {
+		$template = new Template('{a} {a} {b}!');
+		$result = $template->render(array('a' => 'Hello', 'b' => 'World'));
+		$this->assertEquals('Hello Hello World!', $result);
+	}
+
 	public function testRenderShouldNotBeRecursive() {
 		$template = new Template('{a} {b}');
 		$result = $template->render(array('a' => 'Hello {b}', 'b' => 'World'));

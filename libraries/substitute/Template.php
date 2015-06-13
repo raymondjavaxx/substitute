@@ -18,8 +18,8 @@ namespace substitute;
  *
  * @package substitute
  */
-class Template {
-
+class Template
+{
 	/**
 	 * Template body
 	 *
@@ -30,25 +30,35 @@ class Template {
 	/**
 	 * Constructor
 	 *
-	 * @param string $body template body
+	 * @param null|string $body template body
 	 */
-	public function __construct($body) {
-		$this->body = $body;
+	public function __construct($body = null)
+	{
+		if (!is_null($body)) {
+			$this->setBody($body);
+		}
+	}
+	
+	public function setBody($body)
+	{
+		$this->body = (string) $body;
 	}
 
 	/**
 	 * Renders the template using provided vars
 	 *
 	 * @param array $vars key-value pairs of variables and their values
+	 * @return string
 	 */
-	public function render($vars = array()) {
-		$keys = array_keys($vars);
-		$vals = array_values($vars);
+	public function render($vars = array())
+	{
+		$keys 	= array_keys($vars);
+		$values	= array_values($vars);
 
-		$keys = array_map(function ($k) {
-			return '{' . $k . '}';
+		$keys = array_map(function ($key) {
+			return '{' . $key . '}';
 		}, $keys);
 
-		return strtr($this->body, array_combine($keys, $vals));
+		return strtr($this->body, array_combine($keys, $values));
 	}
 }
